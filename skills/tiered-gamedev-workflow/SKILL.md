@@ -53,7 +53,10 @@ description: Use when starting any game-dev feature with an AI agent and decidin
 3. 最小修订是什么？（加一条检查 / 调判级触发 / 回退某项轻量化）
 
 **输出**：一句话修订建议报用户，同意后写入项目 CLAUDE.md 的 append-only 修订记录
-（日期/事故/修订），并同步更新本 skills 库对应内容。
+（日期/事故/修订），并同步更新本 skills 库对应内容（公开发布的库要先脱敏：
+去除路径/用户名/项目专属细节）。同时检查 agent 的**持久记忆**（如 Claude Code
+自动记忆）中以旧规则、旧环境为前提的条目，改写或删除——过时记忆比没有更糟，
+会把 agent 拽回已废除的流程。
 
 **防膨胀**：规则只能因事故而增、因连续多特性无价值而删——双向收敛。
 
