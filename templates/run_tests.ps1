@@ -7,7 +7,7 @@
 # Godot 路径: 传 -GodotPath 或设环境变量 GODOT_PATH。
 # 注意: Windows 版 Godot 是 GUI 子系统应用,必须 Start-Process+重定向+WaitForExit;
 # SceneTree 测试出脚本错误会挂死主循环,故每测带超时强杀。
-# 本文件必须保存为 UTF-8 with BOM(PS5.1 无 BOM 误读中文注释会产生解析错误)。
+# 基线 pwsh 7+(UTF-8,无需 BOM)。Windows PowerShell 5.1 支持止于本包 v1.1.0。
 
 param(
     [string]$Test = "",

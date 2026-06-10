@@ -9,7 +9,7 @@
 |---|---|
 | **tiered-gamedev-workflow** | 流程重量匹配改动风险：S/M/L 特性分级 + 升级判定 + 永不轻量的底线 + 工作流自我纠错的复盘回路 |
 | **godot-headless-testing** | Godot 4 无头测试全套：SceneTree 骨架、看门狗、事件驱动断言、8 条真实事故坑表、并行 runner（25 测 4-7 分钟 → ~65s） |
-| **solo-repo-discipline** | 人机共用工作区的 git 纪律：显式 stage、丢弃前 diff、无 BOM commit、本地合并落地、编码坑 |
+| **solo-repo-discipline** | 人机共用工作区的 git 纪律：显式 stage、丢弃前 diff、here-string 提交、本地合并落地 |
 | **gamedev-toolchain** | superpowers × godot-mcp-enhanced 协同：阶段→工具映射、MCP 能力速查、保持最新机制 |
 
 ## 安装
@@ -39,7 +39,8 @@ git clone https://github.com/sonic7881963/gamedev-skills
 | [superpowers](https://github.com/obra/superpowers) | 5.1.0 | 流程纪律基座（brainstorm/TDD/计划/调试），本包多处交叉引用 |
 | [godot-mcp-enhanced](https://www.npmjs.com/package/godot-mcp-enhanced) | 0.17.2 | 引擎闭环 MCP（`npx -y` 自动更新）；`claude mcp add godot -- npx -y godot-mcp-enhanced` + `GODOT_PATH` |
 | Godot | 4.6.x | Windows 注意 GUI 子系统调用方式（skill 内有解法） |
-| PowerShell | 5.1 | 模板脚本兼容 5.1（编码坑已处理） |
+| PowerShell | **7+（pwsh）** | v2.0.0 起基线 pwsh 7+（UTF-8，无 BOM/-F 仪式）；仍在 Windows PowerShell 5.1 上的用户用 **v1.1.0 tag**（最后兼容版，含 BOM/-F 编码规则） |
+| Claude Code | 2026-06 新版 harness | MCP 工具延迟加载（先 ToolSearch）、后台任务、子代理、CronCreate——skill 内已适配；旧版 harness 用户这些条目可忽略 |
 
 上游更新后的同步动作见 `UPDATE-CHECKLIST.md`。
 

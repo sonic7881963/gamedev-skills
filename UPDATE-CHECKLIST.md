@@ -28,6 +28,20 @@
 2. 同一事故在 SKILL.md 红线表/坑表里补一行（带"现实"反驳）。
 3. commit + push 本仓库——**项目约定与本库不允许漂移**。
 
+## Claude Code harness / 终端环境更新时
+
+1. 实测 shell 基线：`$PSVersionTable.PSVersion` + `[Console]::OutputEncoding`——
+   版本或编码变了，**所有以旧 shell 为前提的规则全部重新实测**（不靠猜）。
+2. 冒烟三件：①含 `"引号"`/`(括号)`/中文 的 here-string 提交进临时仓库，
+   `git log --format=%B` 验完整；②无 BOM UTF-8 中文 .ps1 执行；③MCP 工具调用
+   方式（是否延迟加载、是否需先 ToolSearch）。
+3. 盘点新 harness 能力（后台任务/子代理/定时任务/worktree 等）→ 评估写进
+   gamedev-toolchain 的阶段映射表。
+4. 规则前提失效 → 改写对应 SKILL.md；**破坏性变更**（如基线升级）在 README
+   版本表标注最后兼容 tag，并打主版本号 tag。
+   （实例：2026-06-10 工具从 PS5.1/GBK 换 pwsh 7.6.2/UTF-8，BOM 与 -F 规则
+   实测失效，v2.0.0 切 pwsh 7+ 基线。）
+
 ## Godot 引擎升级时
 
 1. 重跑模板 runner 的全量测试确认 SceneTree 脚本模式仍然成立。

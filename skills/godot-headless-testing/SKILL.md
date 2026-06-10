@@ -62,5 +62,7 @@ func _on_phys() -> void:
 ## 纪律
 
 红（单测）→ 绿（单测）→ 并行全量 ×1 → 提交（**REQUIRED**：superpowers:test-driven-development）。
+提交前的全量并行用**后台任务**跑（Claude Code run_in_background）——期间准备 diff
+自查与 commit message，完成自动通知，不要轮询。
 3× 稳定性复跑只在改动时序敏感测试本身时做。意外翻红走 superpowers:systematic-debugging
 ——写一次性探针打印逐帧状态，定位后删探针，禁止猜改。

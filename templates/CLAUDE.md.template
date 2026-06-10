@@ -25,7 +25,7 @@ L：完整 brainstorm → spec → plan → execute
 ## 提交与落地（见 solo-repo-discipline skill）
 
 - 绝不 `git add -A`；丢弃前必须 diff 确认纯格式。
-- commit -F 无 BOM 临时文件；.ps1 存 UTF-8 with BOM。
+- commit 直接用单引号 here-string（pwsh 7+ 基线）；.ps1 存 UTF-8（无需 BOM）。
 - 落地：本地合并 main + push；标签里程碑制。
 
 ## 工作流复盘规则

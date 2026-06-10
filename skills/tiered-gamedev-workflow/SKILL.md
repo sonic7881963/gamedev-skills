@@ -44,7 +44,8 @@ description: Use when starting any game-dev feature with an AI agent and decidin
 ## 复盘回路（工作流自我纠错）
 
 **触发**：逃逸 bug（提交后才发现）/ 返工（同处二改）/ 丢失破坏工作 / 同类判级错误
-反复 / 用户指出流程问题 / 上游工具更新导致行为变化。
+反复 / 用户指出流程问题 / 上游工具**或运行环境**（Claude Code harness、shell、
+引擎）更新导致行为变化——环境换了，所有以旧环境为前提的规则要实测重审。
 
 **动作**（修完问题后归因三问）：
 1. 旧流程的哪一步本会拦住它？
