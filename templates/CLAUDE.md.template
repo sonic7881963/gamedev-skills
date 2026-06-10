@@ -1,0 +1,42 @@
+# <项目名> — 工作流约定（基于 gamedev-skills，按需填空/删改）
+
+<一句话项目简介>。仓库根 = <路径说明，若 Claude 启动目录不是仓库根必须写明>。
+设计文档索引：`docs/specs/`。
+
+## 测试
+
+```powershell
+.\tools\run_tests.ps1                   # 全量并行
+.\tools\run_tests.ps1 -Test test_xxx    # 单测
+.\tools\run_tests.ps1 -Import           # 新增 class_name 后必跑
+```
+
+- Godot 路径：`<填绝对路径>`（设 GODOT_PATH 环境变量）。
+- 每任务纪律：红（单测）→ 绿（单测）→ 并行全量 ×1 → 提交。
+- 测试模式与坑表：见 godot-headless-testing skill。
+
+## 特性分级（见 tiered-gamedev-workflow skill）
+
+S：三五行设计确认 → TDD → 提交（规格进 commit message）
+M：短规格入 docs/specs/ → TDD → 提交
+L：完整 brainstorm → spec → plan → execute
+拿不准默认 M；升级判定与中途升级规则照 skill 执行。
+
+## 提交与落地（见 solo-repo-discipline skill）
+
+- 绝不 `git add -A`；丢弃前必须 diff 确认纯格式。
+- commit -F 无 BOM 临时文件；.ps1 存 UTF-8 with BOM。
+- 落地：本地合并 main + push；标签里程碑制。
+
+## 工作流复盘规则
+
+触发：逃逸 bug / 返工 / 丢失工作 / 判级错误反复 / 用户指出流程问题 / 上游工具更新。
+动作：归因三问（旧流程哪步能拦住？流程缺口还是执行失误？最小修订是什么？）→
+用户同意后写入下方修订记录，并同步到 gamedev-skills 库。
+
+**修订记录（append-only：日期 / 事故 / 修订）**
+- <date> / <incident> / <amendment>
+
+## 项目速查
+
+<核心系统 → 文件/常量位置的速查表>

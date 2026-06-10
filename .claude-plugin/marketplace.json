@@ -1,0 +1,13 @@
+{
+  "name": "gamedev-skills",
+  "owner": {
+    "name": "sonic7881963"
+  },
+  "plugins": [
+    {
+      "name": "gamedev-skills",
+      "source": "./",
+      "description": "Tiered game-dev workflow, Godot 4 headless testing patterns, shared-repo discipline, and toolchain orchestration — distilled from real Mount&Blade-style demo development"
+    }
+  ]
+}

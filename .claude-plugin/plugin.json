@@ -1,0 +1,20 @@
+{
+  "name": "gamedev-skills",
+  "description": "Battle-tested game-dev workflow skills for Claude Code: tiered S/M/L process with a self-correcting retrospective loop, Godot 4 headless testing patterns, human+agent shared-repo discipline, and superpowers x godot-mcp-enhanced toolchain orchestration",
+  "version": "1.0.0",
+  "author": {
+    "name": "sonic7881963"
+  },
+  "homepage": "https://github.com/sonic7881963/gamedev-skills",
+  "repository": "https://github.com/sonic7881963/gamedev-skills",
+  "license": "MIT",
+  "keywords": [
+    "gamedev",
+    "godot",
+    "workflow",
+    "testing",
+    "skills",
+    "tdd",
+    "mcp"
+  ]
+}
