@@ -8,7 +8,7 @@
 | Skill | 解决什么 |
 |---|---|
 | **tiered-gamedev-workflow** | 流程重量匹配改动风险：S/M/L 特性分级 + 升级判定 + 永不轻量的底线 + 工作流自我纠错的复盘回路 |
-| **godot-headless-testing** | Godot 4 无头测试全套：SceneTree 骨架、看门狗、事件驱动断言、8 条真实事故坑表、并行 runner（25 测 4-7 分钟 → ~65s） |
+| **godot-headless-testing** | Godot 4 无头测试全套：SceneTree 骨架、看门狗、事件驱动断言、真实事故坑表、并行 runner（留核+重负载隔离，串行分钟级 → 一两分钟） |
 | **solo-repo-discipline** | 人机共用工作区的 git 纪律：显式 stage、丢弃前 diff、here-string 提交、本地合并落地 |
 | **gamedev-toolchain** | superpowers × godot-mcp-enhanced 协同：阶段→工具映射、MCP 能力速查、保持最新机制 |
 

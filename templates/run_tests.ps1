@@ -14,7 +14,10 @@ param(
     [switch]$Import,
     [string]$GodotPath = $env:GODOT_PATH,
     [int]$TimeoutSec = 150,
-    [int]$Throttle = 0
+    [int]$Throttle = 0,
+    # 重负载测试名(长战局/大规模模拟):与全队并行易被 CPU 饥饿拖到看门狗超时,
+    # 列进来的会单独末批、只彼此并行。
+    [string[]]$HeavyTests = @()
 )
 
 if (-not $GodotPath -or -not (Test-Path $GodotPath)) {
@@ -24,7 +27,8 @@ if (-not $GodotPath -or -not (Test-Path $GodotPath)) {
 $proj = Split-Path $PSScriptRoot -Parent
 $tmp = Join-Path $env:TEMP "godot_tests"
 New-Item -ItemType Directory -Force $tmp | Out-Null
-if ($Throttle -le 0) { $Throttle = [Environment]::ProcessorCount }
+# 留 2 核给系统:满核并行会 CPU 饥饿,诱发看门狗超时/时序偶发。
+if ($Throttle -le 0) { $Throttle = [Math]::Max(1, [Environment]::ProcessorCount - 2) }
 
 function Start-GodotTest([string]$name) {
     $out = Join-Path $tmp "$name.out.txt"
@@ -69,7 +73,9 @@ if ($Test) {
     if ($ok) { exit 0 } else { exit 1 }
 }
 
-$names = Get-ChildItem (Join-Path $proj "tests") -Filter "test_*.gd" | ForEach-Object { $_.BaseName }
+$all = @(Get-ChildItem (Join-Path $proj "tests") -Filter "test_*.gd" | ForEach-Object { $_.BaseName })
+$names = @($all | Where-Object { $HeavyTests -notcontains $_ })
+$heavyNames = @($all | Where-Object { $HeavyTests -contains $_ })
 $sw = [System.Diagnostics.Stopwatch]::StartNew()
 $bad = 0
 for ($i = 0; $i -lt $names.Count; $i += $Throttle) {
@@ -79,6 +85,12 @@ for ($i = 0; $i -lt $names.Count; $i += $Throttle) {
         if (-not (Report-GodotTest $job)) { $bad++ }
     }
 }
+if ($heavyNames.Count -gt 0) {
+    $jobs = @($heavyNames | ForEach-Object { Start-GodotTest $_ })
+    foreach ($job in $jobs) {
+        if (-not (Report-GodotTest $job)) { $bad++ }
+    }
+}
 $sw.Stop()
-Write-Host ("failures: {0}  ({1} tests in {2:n0}s)" -f $bad, $names.Count, $sw.Elapsed.TotalSeconds)
+Write-Host ("failures: {0}  ({1} tests in {2:n0}s)" -f $bad, $all.Count, $sw.Elapsed.TotalSeconds)
 if ($bad -gt 0) { exit 1 } else { exit 0 }
