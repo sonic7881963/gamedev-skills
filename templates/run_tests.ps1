@@ -33,8 +33,10 @@ if ($Throttle -le 0) { $Throttle = [Math]::Max(1, [Environment]::ProcessorCount 
 function Start-GodotTest([string]$name) {
     $out = Join-Path $tmp "$name.out.txt"
     $err = Join-Path $tmp "$name.err.txt"
+    # --fixed-fps 60:delta 固定且主循环全速空转——战局模拟不再按真实时间等(约 3×),
+    # 固定 delta 同时根除墙钟漂移类偶发。
     $p = Start-Process -FilePath $GodotPath `
-        -ArgumentList @('--headless', '--script', "res://tests/$name.gd", '--path', "`"$proj`"") `
+        -ArgumentList @('--headless', '--fixed-fps', '60', '--script', "res://tests/$name.gd", '--path', "`"$proj`"") `
         -PassThru -NoNewWindow -RedirectStandardOutput $out -RedirectStandardError $err
     return [pscustomobject]@{ Name = $name; Proc = $p; Out = $out; Err = $err }
 }
