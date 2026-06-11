@@ -38,7 +38,11 @@ description: Use when starting any game-dev feature with an AI agent and decidin
 2. 开工前一轮设计确认——"简单"改动最容易藏物理/数学陷阱（实例：射程翻倍这种
    两行数据改动，靠开工前 10 分钟分析才发现抛物线极限射程根本够不到新数值）
 3. 提交前全量测试 ×1（并行跑，见 godot-headless-testing）
-4. 意外失败必走 superpowers:systematic-debugging（探针定位，禁止猜改）
+4. **特性交付验收含一次真实启动 + stderr 捕获为空**——测试全绿 ≠ 全图干净：
+   测试只编译自己的依赖链（实例：大迁移期间未迁脚本的类型冲突沿 class_name
+   全局类型图级联毒化，活动链上的相机脚本加载失败、游戏黑屏，测试全绿两次
+   没拦住，用户试玩才发现）
+5. 意外失败必走 superpowers:systematic-debugging（探针定位，禁止猜改）
 
 ## 中途升级
 
