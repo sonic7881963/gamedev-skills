@@ -27,6 +27,8 @@ description: Use when setting up or driving the Claude Code toolchain for Godot 
 | 听音效 | MCP `audio`（audio_play 指定 stream_path） |
 | 大范围代码搜索/摸底 | **Explore 子代理**（只回结论不占主上下文；单点已知文件直接读） |
 | ≥2 个互不依赖的任务 | superpowers:dispatching-parallel-agents 并行子代理 |
+| 运营子代理团队（派发简报/模型档位/成本复盘/审查经济） | running-subagent-teams |
+| 工作流自我纠错（复盘/改规则/控胀/根基防护） | evolving-workflow-rules |
 | 提交前全量测试 | 测试 runner **后台运行**（run_in_background），期间备好提交材料，完成自动通知 |
 | 提交落地 | solo-repo-discipline |
 

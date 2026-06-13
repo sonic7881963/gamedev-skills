@@ -21,7 +21,9 @@
 ## 本地工作流迭代时（复盘回路产生修订）
 
 1. 项目 CLAUDE.md 修订记录新增条目后，把规则变化同步进对应 SKILL.md：
-   - 流程/判级/复盘 → tiered-gamedev-workflow
+   - 流程/判级（分级/升级/底线/中途升级） → tiered-gamedev-workflow
+   - 子代理派发/模型档位/成本/审查经济 → running-subagent-teams
+   - 复盘/归因/把关三检/控胀/根基防护/记忆审计 → evolving-workflow-rules
    - 测试坑/模式 → godot-headless-testing
    - 提交/协作 → solo-repo-discipline
    - 工具用法 → gamedev-toolchain
