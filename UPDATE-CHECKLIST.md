@@ -2,6 +2,22 @@
 
 本包依赖的上游在持续演进，**任一更新后过一遍对应清单**，再更新 README 版本表。
 
+## 受监控上游（工具更新监测用）
+
+供"工具更新监测"特性（每周 cron + 本地 `check-tool-updates` skill）共读的单一事实源。
+检测 = 上游最新版 vs 下表"基线"列指向的 README 版本表项；高出即有更新，拉两版之间的
+release notes / CHANGELOG 当"改了什么"。新增受监控上游 = 加一行。
+
+**本地别名（MCP 服务器名 / 插件 id）不写这里**（本库脱敏，去项目/机器专属）——同一物
+常有三名（star 的 GitHub repo、发布的 npm 包、`/mcp` 里的本地服务器别名，三者可不同），
+本地 skill 运行时自行解析：`claude mcp list`/`get` 按命令 Args 里的**包名**匹配出本地
+服务器别名，`claude plugin list` 匹配出插件 id。
+
+| name | kind | 上游（changelog 源） | 基线（README 版本表项） | pull 类型 |
+|---|---|---|---|---|
+| superpowers | plugin | `obra/superpowers` GitHub releases | superpowers | plugin-update（`claude plugin update`） |
+| godot-mcp-enhanced | mcp(npx) | `wgt19861219/godot-mcp-enhanced` + npm CHANGELOG | godot-mcp-enhanced | npx-restart（冷启动自动拉最新，"更新"=重启 MCP + 跑下方冒烟 + bump 基线） |
+
 ## godot-mcp-enhanced 更新时（`npx -y` 冷启动自动拉新）
 
 1. `npm view godot-mcp-enhanced version` 记录新版本号。
