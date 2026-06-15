@@ -28,7 +28,7 @@ description: Use when an AI agent shares a git worktree with a human whose edito
 | commit message 含中文/括号/引号 | pwsh 7+ 基线：单引号 here-string `git commit -m @'...'@` 直接可用（实测安全）；遇罕见分词异常再退回无 BOM UTF-8 临时文件 + `git commit -F` |
 | `.ps1` 脚本含中文注释 | pwsh 7+ 基线：UTF-8 即可，无需 BOM（Windows PowerShell 5.1 的 BOM/-F 规则止于本包 v1.1.0，见 README 版本表） |
 | 落地方式 | 单人仓库默认**本地合并 + 直接 push**；PR 仪式只留给里程碑（gh 的 OAuth token 可能数小时失效，push 走 git 凭证更稳） |
-| 版本标签 | 里程碑制（攒几个特性一个 tag），git log 保持细粒度即可 |
+| 版本标签 | **每次收口必判并显式输出 TAG/NO_TAG+一句理由**（不许静默漏打）；只为"可运行·可回退·有独立价值"的稳定交付点打 tag，纯文档/重构/小修默认不打、连续小改攒批再统一打；semver(fix=patch/可见功能=minor/破坏=major)，用注释 tag 记覆盖范围。**反模式**："攒到里程碑统一打"会因里程碑被递归 scope 撑得永不 close 而漂到零 tag——把判定绑到每次收口这个反复发生的事件 |
 | 合并后切分支 | 若 checkout 被未提交文件挡住：`git branch -f <branch> origin/<branch>` 再 checkout 同指针提交——零文件变动，用户改动原样保留 |
 
 ## 红线自检
