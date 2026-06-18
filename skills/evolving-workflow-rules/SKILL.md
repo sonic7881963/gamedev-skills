@@ -52,3 +52,18 @@ description: Use when the development process itself needs to change — a rule 
 会把 agent 拽回已废除的流程。
 
 **防膨胀**：规则只能因事故而增、因连续多特性无价值而删——双向收敛。
+
+## 顶层北极星（防上下文压缩 / 换会话丢全局）
+
+跨多会话的大弧维护一份**全局观 doc**（愿景 + 完成标准 / 结构骨干 / 正交工作线 / 待办线程图 /
+技术地雷）+ 一份**自动加载的同名记忆**——双通道，扛 `/compact` 与 session 切换造成的全局丢失。
+
+- **开活前 + 每里程碑后**跑**自检仪式**：①锚定（这件事服务哪个完成标准？不清 → 先 brainstorm/问，
+  别埋头写）②分线（落在哪条正交工作线？放错线 = 拆东墙补西墙）③护栏（硬编码/piecemeal/漂移/
+  probe-first/验收任一命中 → 停、回宏观重锚）。北极星不是状态快照，是每轮决策的锚。
+- **收口按演进仪式更新**：manual-curated（助手提案 → 用户确认），**macro 留 doc、细节进对应 spec**，
+  别让经验孤儿化（记忆/版本库才是真源）。新增前先问"这是 macro 还是该进某 spec？"防 doc 膨胀。
+- **检验标尺**：新 session / compact 后只读它就能"宏观正确地"下一步，且护栏能拦住硬编码/piecemeal。
+
+把北极星定位成既有微观纪律（瘦身/probe/shipping 验收）**之上的宏观锚**，不重列护栏细节。
+蒸馏自 self-evolving-agent（PDCA 锚定 + 护栏）。
