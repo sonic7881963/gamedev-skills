@@ -49,7 +49,7 @@ git clone https://github.com/sonic7881963/gamedev-skills
 
 | 依赖 | 版本 | 说明 |
 |---|---|---|
-| [superpowers](https://github.com/obra/superpowers) | 5.1.0 | 流程纪律基座（brainstorm/TDD/计划/调试），本包多处交叉引用 |
+| [superpowers](https://github.com/obra/superpowers) | 6.0.2 | 流程纪律基座（brainstorm/TDD/计划/调试），本包多处交叉引用；6.0 重写 subagent-driven-development（单审合一+脚本化文件交接 review-package/task-brief），14 个 slug 全不变、交叉引用不受影响（已核） |
 | [godot-mcp-enhanced](https://www.npmjs.com/package/godot-mcp-enhanced) | 0.18.1 | 引擎闭环 MCP（`npx -y` 自动更新）；`claude mcp add godot -- npx -y godot-mcp-enhanced` + `GODOT_PATH`。**v0.18.0 起工具按组管理（39→27），不在列表的工具用 `manage_tools activate <组>` 启用；旧名走 LEGACY 兼容** |
 | Godot | 4.6.x | Windows 注意 GUI 子系统调用方式（skill 内有解法） |
 | PowerShell | **7+（pwsh）** | v2.0.0 起基线 pwsh 7+（UTF-8，无 BOM/-F 仪式）；仍在 Windows PowerShell 5.1 上的用户用 **v1.1.0 tag**（最后兼容版，含 BOM/-F 编码规则） |
