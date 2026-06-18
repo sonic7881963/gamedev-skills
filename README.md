@@ -14,6 +14,17 @@
 | **solo-repo-discipline** | 人机共用工作区的 git 纪律：显式 stage、丢弃前 diff、here-string 提交、本地合并落地 |
 | **gamedev-toolchain** | superpowers × godot-mcp-enhanced 协同：阶段→工具映射、MCP 能力速查、保持最新机制 |
 
+### 通用中文协作 skills（蒸馏自 superpowers-zh）
+
+非源项目提炼，而是从 [superpowers-zh](https://github.com/jnMetaCode/superpowers-zh)（MIT）蒸馏的通用中文编程
+辅助——伴随式叠加在 superpowers 的写作/提交/审查技能之上，自动触发（无需手动 `/`）：
+
+| Skill | 解决什么 |
+|---|---|
+| **chinese-documentation** | 中文技术文档排版：中英空格、全/半角标点、术语保留、去机翻味 |
+| **chinese-commit-conventions** | 中文 commit message：Conventional Commits 中文适配（仅写消息部分，不含 npm 工具链） |
+| **chinese-code-review** | 中文审查沟通：分级标注 [必须修复/建议修改/仅供参考] + 建议式话术 + 反模式 |
+
 ## 安装
 
 **方式一：插件（推荐）**
