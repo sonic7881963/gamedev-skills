@@ -58,7 +58,10 @@ description: Use when starting any game-dev feature with an AI agent and decidin
 4. **特性交付验收含一次真实启动 + stderr 捕获为空**——测试全绿 ≠ 全图干净：
    测试只编译自己的依赖链（实例：大迁移期间未迁脚本的类型冲突沿 class_name
    全局类型图级联毒化，活动链上的相机脚本加载失败、游戏黑屏，测试全绿两次
-   没拦住，用户试玩才发现）
+   没拦住，用户试玩才发现）。**且"真实启动"须走主可玩场景的真实入口（真实
+   spawn/命令/配置）——verify/probe 脚手架不算实装**（实例：编队坚守机制各切片只在
+   verify 沙盒/probe 验过，单位被直接摆在目标槽点上、用测试硬编的几何参数，主可玩
+   场景从没走真实 spawn 验过 → 报"实装"但游戏里从没生效、还沿用了旧默认参数）
 5. 意外失败必走 superpowers:systematic-debugging（探针定位，禁止猜改）
 
 ## 中途升级
