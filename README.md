@@ -25,6 +25,24 @@
 | **chinese-commit-conventions** | 中文 commit message：Conventional Commits 中文适配（仅写消息部分，不含 npm 工具链） |
 | **chinese-code-review** | 中文审查沟通：分级标注 [必须修复/建议修改/仅供参考] + 建议式话术 + 反模式 |
 
+### 设计部门（设计顾问 agents）
+
+`agents/` 下另有 9 个**设计域顾问**（蒸馏自 [claude-code-game-studios](https://github.com/donchitos/claude-code-game-studios)，MIT），补「全是代码执行代理、零设计顾问」的缺口。**装进你项目的 `.claude/agents/`** 即可点名派发；伴随式 skill `design-advisory` 管「何时把哪个顾问拉进来」。
+
+| 议题 | 顾问 |
+|---|---|
+| 核心循环·机制·MDA·整体平衡 | game-designer |
+| 具体公式·曲线·交互矩阵 | systems-designer |
+| 货币·掉落·进度·奖励·通胀 | economy-designer |
+| 战场/关卡布局·遭遇·节奏 | level-designer |
+| HUD·交互·可读性·反馈·引导 | ux-designer |
+| 剧情·世界观·角色·ludonarrative | narrative-director |
+| 视觉风格·art bible·给美术提需求 | art-director |
+| 声音美学·音乐·音效·自适应 | audio-director |
+| 「这还是同一款游戏吗」·支柱自洽 | creative-director |
+
+**★ 设计建议没有 oracle**——测试证不了好不好玩 / 平不平衡，顾问产出是框架 + 初稿、**playtest 才是终审**。配套 12 个设计文档模板见 `templates/design/`；部门总览、用法与告诫见 `agents/README.md`。
+
 ## 安装
 
 **方式一：插件（推荐）**
