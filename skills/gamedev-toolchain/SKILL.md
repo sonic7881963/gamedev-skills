@@ -49,6 +49,13 @@ description: Use when setting up or driving the Claude Code toolchain for Godot 
   实测可用。多实例管理需 `GODOT_MCP_MULTI_INSTANCE=true`。
 - MCP 工具是运行时操作，不持久化——要持久改动就编辑 .tscn/.gd 文件。
 
+## 搜索 GDScript 文件（ripgrep 坑）
+
+ripgrep 把 `*.gd` 注册为 **`gap`** 类型（GAP 语言），不是 `gdscript`。用 `--type gdscript` /
+给 Grep 工具传 `type:"gdscript"` 会**硬报错、搜索根本不执行**。过滤 GDScript 一律用 `glob`：
+Grep 工具 `glob:"*.gd"` ✓ / shell `rg --glob "*.gd"` ✓。（Godot 引擎版本/API 时效性坑另见
+`godot-editor-tool-traps` 与各引擎参考文档。）
+
 ## 保持最新（与复盘回路联动）
 
 1. **上游更新**：MCP 行为变化/新能力 → 跑仓库 `UPDATE-CHECKLIST.md` 的冒烟清单 →

@@ -11,6 +11,7 @@
 | **running-subagent-teams** | 子代理团队的运营经济学与纪律：派发简报 + 断点/成本快照 + 模型档位/哨兵 + 落地报告纪律 + 审查右量化 + 长上下文红线 |
 | **evolving-workflow-rules** | 工作流自我纠错：复盘回路 + 归因三问 + 入册前把关三检 + 控胀三则 + 常驻特权三分法 + 根基防护 + 记忆审计 |
 | **godot-headless-testing** | Godot 4 无头测试全套：SceneTree 骨架、看门狗、事件驱动断言、真实事故坑表、并行 runner（留核+重负载隔离，串行分钟级 → 一两分钟） |
+| **godot-editor-tool-traps** | Godot 4 @tool 编辑器脚本 & .tres 资源 authoring 坑：属性 setter 内存盘→编辑器静默崩（call_deferred）、.tres 省略默认值、_process 重建撞存盘、非等比 scale 升 Vector3、标定工具 round-trip、@tool 脚本解析错测试套件抓不到（headless --check-only） |
 | **solo-repo-discipline** | 人机共用工作区的 git 纪律：显式 stage、丢弃前 diff、here-string 提交、本地合并落地 |
 | **gamedev-toolchain** | superpowers × godot-mcp-enhanced 协同：阶段→工具映射、MCP 能力速查、保持最新机制 |
 
