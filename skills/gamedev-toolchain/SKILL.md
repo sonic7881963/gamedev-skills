@@ -38,8 +38,8 @@ description: Use when setting up or driving the Claude Code toolchain for Godot 
   直接调用报 InputValidationError——先用 ToolSearch（如
   `select:mcp__godot__screenshot`）加载 schema 再调用。
 - `npx -y` 形态 = 冷启动自动拉最新版；行为突变时先查版本：
-  `npm view godot-mcp-enhanced version`（本包内容核对于 **v0.18.1**）。
-- **工具按组管理（v0.18.0 起，39→27 合并）**：27 个工具分 16 组（`core` 受保护
+  `npm view godot-mcp-enhanced version`（本包内容核对于 **v0.20.0**）。
+- **工具按组管理（v0.18.0 起 39→27 合并，v0.20.0 增至 28）**：28 个工具分组（`core` 受保护
   常驻；`editor`/`bridge` 需对应能力；`test` 已并入 `validation`）。`manage_tools`
   动态启停（始终可用、不可禁用）：`list_groups` 查全组、`activate <组>` 启用——
   **某工具名不在可用列表里时多半是该组未激活，先 `manage_tools activate`，不是
