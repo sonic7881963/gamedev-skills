@@ -62,6 +62,10 @@ description: Use when an AI agent is dispatching, briefing, or budgeting subagen
      前必须前台收割一切异步；**严禁以"等待"作为最后动作**；无可重叠工作就
      前台跑（阻塞等待不烧 token，轮询才烧——禁一刀切是经评估的取舍）。
    - 先落地后报告：验证→提交→才写报告（报告丢失时工作已 durable）。
+   - **报告须 `SendMessage` 送达控制者**：子代理最终回合的文本输出**不会自动送达**
+     控制者——后台派发下控制者只收到它的 idle 通知、看不到报告正文。写完务必
+     `SendMessage({to:"main", ...})` 发出（状态+SHA+红绿+concern）；不发=控制者收不到、
+     被迫每任务手动 poke 或 git 取证。BLOCKED/提问同理（派发词也应显式要求「完成 SendMessage main」）。
    - commit message 即报告备份：红绿证据/关键数字/偏差入提交正文，
      `git log` 可独立还原。
    - 报告硬上限 ~500 字：通过项一行列举——长报告烧控制者上下文，且随
